@@ -161,5 +161,124 @@ int main()
 }
 ```
 Lưu ý rằng bài này chúng ta không nhập n vào
+***
+## Bài 7
+
+### Ý tưởng 
+* Dùng các biến khác nhau để tính từng hạng tử trong số hạng an
+
+### Bài làm
+```php
+#include <iostream>
+using namespace std;
+int main()
+{
+ int a,a1,b,c,n;
+ cin >> n;
+ a=-2;
+ a1=-2;
+ b=6;
+ c=42;
+ for(int i=2;i<=n;i++) {
+  a1=5*a;
+  b=b*3;
+  c=c*7;
+  a= a1+b-c+12;
+ }
+ cout << a;
+ return 0;
+}
+```
+***
+## Bài 8
+Cho ba số thực x, y, z không âm là ba cạnh của một tam giác. Hãy cho biết tam giác đó là tam giác gì?
+
+### Ý tưởng
+* Dùng các định nghĩa tam giác: tam giác có bình phương 1 cạnh bằng tổng bình phương 2 cạnh còn lại là tam giác vuông, tam giác có 3 cạnh bằng nhau là tam giác đều, tam giác có 2 trong 3 cạnh bằng nhau là tam giác cân,...
+
+### Bài làm
+```php
+#include <iostream>
+using namespace std;
+int main()
+{
+ int x,y,z;
+ cin >> x >> y >> z;
+ if(x <y+z && y <x+z && z <x+y) {
+  if(x*x == y*y+z*z or y*y == x*x+z*z or z*z == x*x+y*y)
+  cout << "Tam giac vuong";
+  else if(x==y && y==z)
+  cout << "Tam giac deu";
+  else if(x==y or y==z or x==z)
+  cout << "Tam giac can";
+  else if(x*x > y*y+z*z or y*y > x*x+z*z or z*z > x*x+y*y)
+  cout << "Tam giac tu";
+ }
+ else
+ cout << "Khong phai tam giac";
+ return 0;
+}
+```
+***
+## Bài 9
+Kiểm tra xem số nguyên dương n có phải là số chính phương hay
+không?
+
+### Ý tưởng 
+* Kiểm tra xem từ 1 tới $\sqrt{n}$ có số i nào bình phương bằng n không. Nếu có thì n là số chính phương, ngược lại thì n không phải là số chính phương
+
+### Bài làm
+```php
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+ int i,n;
+ do {
+ cin >> n;
+ }
+ while(n<0);
+ for(int i=1;i*i <= n ;i++) {
+ if(n == i*i) {
+ cout << "day la so chinh phuong";
+ return 0;
+ }
+ }
+ cout << "day khong phai la so chinh phuong";
+
+}
+```
+***
+## Bài 10
+Kiểm tra số nguyên dương n có dạng 5 hay không?
+
+### Ý tưởng
+
+### Bài làm 
+```php
+#include <iostream>
+using namespace std;
+int main()
+{
+ int n,a;
+ do {
+  cin >> n;
+ }
+ while(n<0);
+ a = 5;
+ for(int i=2 ;i*i<=n;i++) {
+  a = a*5;
+  if(a == n) {
+  cout << n << " co dang 5^" << i;
+  return 0;
+ }
+ }
+ cout << n << " khong co dang 5 mu m";
+}
+```
+
+
+
 
 
